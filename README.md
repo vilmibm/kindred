@@ -2,12 +2,16 @@
 
 A minimal static blogengine that watches a directory for posts in markdown.
 
+## Install
+
+    npm install -g kindred
+
 ## Usage
-kindred [--interval <seconds>] template_file publish_dir target_dir
---interval  check for posts this many seconds (defaults to 10)
-template_file  a jade template
-publish_dir  a directory full of markdown files
-target_dir  a directory to drop a rendered index.html
+    kindred [--interval <seconds>] template_file publish_dir target_dir
+* __--interval__  check for posts this many seconds (defaults to 10)
+* __template_file__  a jade template
+* __publish_dir__  a directory full of markdown files
+* __target_dir__  a directory to drop a rendered index.html
 
 While kindred is running, simply move markdown files into `publish_dir`. They
 will be published every `interval` seconds using `template.jade`.
