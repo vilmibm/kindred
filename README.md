@@ -21,11 +21,15 @@ kindred will publish posts in date descending order.
 
 ## Disclaimer
 
+This blogging engine was written to be incredibly convenient to use...For me. Your mileage will vary. I've included the template I use for my site, http://chiptheglasses.com, as example_template.jade.
+
 ## Author
 
-Nathaniel K Smith <nathanielksmith@gmail.com> [http://chiptheglasses.com]
+Nathaniel K Smith <nathanielksmith@gmail.com> http://chiptheglasses.com
 
 ## License
+
+All code is licensed under a [Creative Commons Attribution-ShareAlike 3.0](http://creativecommons.org/licenses/by-sa/3.0/).
 
 ## Name
 
