@@ -4,8 +4,32 @@ var path = require('path');
 
 var jade = require('jade');
 var markdown = require('markdown').markdown;
+var argv = require('optimist').argv
 
 // Usage: kindred.js template_file publish_dir target_dir
+
+if (argv.help) {
+  [ "kindred",
+    "Usage: kindred [--interval <seconds>] template_file publish_dir target_dir",
+    "\t --interval  check for posts this many seconds (defaults to 10)",
+    "\t template_file  a jade template",
+    "\t publish_dir  a directory full of markdown files",
+    "\t target_dir  a directory to drop a rendered index.html",
+    "",
+    "kindred is a tiny blogging engine for nodejs designed to be as convenient",
+    "as possible to use. While kindred is running, simply dropping markdown files",
+    "into the specified publish_dir will cause them to be rendered with the",
+    "specified template.jade every <interval> seconds.",
+    "",
+    "Important: each post must be concluded with a desired publish date in the following",
+    "format:",
+    "",
+    "_YYYY-MM-DD HH:MM_",
+    "",
+    "kindred will publish posts in date descending order."
+  ].forEach(function(s) { console.log(s)});
+  process.exit(0);
+}
 
 var template_file = process.argv[2];
 var publish_dir = process.argv[3];
@@ -26,8 +50,6 @@ function tick() {
   fs.readdir(publish_dir, function(err, files) {
     files.forEach(function(x) {
       files_in++;
-      // TODO support _img and friends
-      if (!x.match(/_txt$/)) { return; }
       fs.readFile(path.join(publish_dir, x), 'utf8', function(err, data) {
         if (err) { console.log("Err reading "+x); files_out++; return; }
         var publish_date = data.match(/_\d\d\d\d-\d\d-\d\d \d\d:\d\d_\s*$/);

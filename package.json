@@ -1,0 +1,23 @@
+{ "name" : "kindred"
+, "version" : "1.0.0",
+, "description" : "A simple, DIY blogging engine",
+, "keywords" : ["blog", "markdown", "minimal"],
+, "author" : "Nathaniel K Smith <nathanielksmith@gmail.com> (http://chiptheglasses.com)"
+, "dependencies" : {
+    "jade" : ">=0.15.3",
+    "markdown" : ">=0.2.1",
+    "optimist" : ">=0.2.6"
+  }
+, "repository" : {
+    "type" : "git",
+    "url" : "http://github.com/nathanielksmith/kindred",
+   }
+, "bugs" : { "mail" :  "nathanielksmith@gmail.com"
+                    , "web" :   "http://github.com/nathanielksmith/kindred/issues" }
+, "os" : [ "linux" ]
+, "config": { "native" : false }
+, "bin" : { "kindred": "./bin/kindred.js" }
+, "engines" : { "node" : ">=0.4.0" }
+, "licenses" : [ { "type" :  "Creative Commons Attribution-ShareAlike 3.0"
+                 , "url" :   "http://creativecommons.org/licenses/by-sa/3.0/" } ]
+}
