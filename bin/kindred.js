@@ -53,7 +53,30 @@ function tick() {
       fs.readFile(path.join(publish_dir, x), 'utf8', function(err, data) {
         if (err) { console.log("Err reading "+x); files_out++; return; }
         var publish_date = data.match(/_\d\d\d\d-\d\d-\d\d \d\d:\d\d_\s*$/);
-        if (!publish_date) { console.log("No publish date for "+x); files_out++; return; }
+        if (!publish_date) {
+          function pad(x) {
+            var y = String(x);
+            return y.length === 1 ? "0" + y : y
+          }
+          // could use fs.stat but it will probably be close to Date.now() anyway
+          var d = new Date();
+          var year   = pad(d.getFullYear());
+          var month  = pad(d.getMonth() + 1);
+          var day    = pad(d.getDate());
+          var hour   = pad(d.getHours());
+          var minute = pad(d.getMinutes());
+
+          publish_date = "_"+year+"-"+month+"-"+day+" "+hour+":"+minute+"_";
+          // append to in-mem version so we can go ahead and use it without
+          // waiting for file update
+          data += ("\n" + publish_date);
+          // append publish_date to post so we pick it up next time
+          fs.open(path.join(publish_dir, x), 'a', 666, function(err,fd) {
+            fs.write(fd, "\n"+publish_date, null, 'utf8', function(err){
+                if (err) { console.error(err); }
+            });
+          });
+        }
         posts.push({
           id: x,
           content: markdown.toHTML(data),
