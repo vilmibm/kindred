@@ -1,5 +1,5 @@
 { "name" : "kindred"
-, "version" : "1.0.0",
+, "version" : "1.1.0",
 , "description" : "A simple, DIY blogging engine",
 , "keywords" : ["blog", "markdown", "minimal"],
 , "author" : "Nathaniel K Smith <nathanielksmith@gmail.com> (http://chiptheglasses.com)"

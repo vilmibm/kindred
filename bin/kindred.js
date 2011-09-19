@@ -21,12 +21,9 @@ if (argv.help) {
     "into the specified publish_dir will cause them to be rendered with the",
     "specified template.jade every <interval> seconds.",
     "",
-    "Important: each post must be concluded with a desired publish date in the following",
-    "format:",
-    "",
-    "_YYYY-MM-DD HH:MM_",
-    "",
-    "kindred will publish posts in date descending order."
+    "kindred will publish posts in date descending order based on the date it",
+    "first saw a post. You can override this by editing the date string that is",
+    "inserted at the bottom of each post."
   ].forEach(function(s) { console.log(s)});
   process.exit(0);
 }

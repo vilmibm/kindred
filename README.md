@@ -16,12 +16,9 @@ A minimal static blogengine that watches a directory for posts in markdown.
 While kindred is running, simply move markdown files into `publish_dir`. They
 will be published every `interval` seconds using `template.jade`.
 
-Important: each post must be concluded with a desired publish date in the following
-format:
-
-\_YYYY-MM-DD HH:MM\_
-
-kindred will publish posts in date descending order.
+kindred will publish posts in date descending order based on the date it
+first saw a post. You can override this by editing the date string that is
+inserted at the bottom of each post.
 
 ## Disclaimer
 
