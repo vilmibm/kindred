@@ -90,7 +90,7 @@ function tick() {
             else return 0;
           });
           fs.writeFile(target_file, render_template({posts:posts}), function(err) {
-            if (err) { console.log("error writing to "+target_file); }
+            if (err) { console.error(err); }
           });
         }
       });
