@@ -1,7 +1,7 @@
 { "name" : "kindred"
-, "version" : "1.1.0",
-, "description" : "A simple, DIY blogging engine",
-, "keywords" : ["blog", "markdown", "minimal"],
+, "version" : "1.1.0"
+, "description" : "A simple, DIY blogging engine"
+, "keywords" : ["blog", "markdown", "minimal"]
 , "author" : "Nathaniel K Smith <nathanielksmith@gmail.com> (http://chiptheglasses.com)"
 , "dependencies" : {
     "jade" : ">=0.15.3",
